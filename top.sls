@@ -15,7 +15,7 @@ base:
 ### Global
 ##########################
   '*':
-{% if 'salt-masterless' in grains['features'] %}
+{% if 'salt-standalone' in grains['features'] %}
     - salt.standalone
 {% else %}
     - salt.minion
