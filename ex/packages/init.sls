@@ -1,0 +1,2 @@
+include:
+  - ex.packages.chocolatey

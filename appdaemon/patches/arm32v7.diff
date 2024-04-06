@@ -1,0 +1,17 @@
+--- /root/d1	2019-10-09 22:11:22.467225438 +0100
++++ /root/d2	2019-10-09 22:13:26.000000000 +0100
+@@ -1,4 +1,4 @@
+-FROM python:3.7-alpine
++FROM arm32v7/python:3.7-alpine
+ 
+ # Environment vars we can configure against
+ # But these are optional, so we won't define them now
+@@ -22,7 +22,7 @@
+ RUN apk add tzdata
+ 
+ # Fix for current dev branch
+-RUN pip3 install --no-cache-dir python-dateutil
++RUN pip3 install --no-cache-dir python-dateutil requests
+ 
+ # Install dependencies
+ RUN apk add --no-cache gcc libffi-dev musl-dev \

@@ -1,0 +1,22 @@
+## DO NOT EDIT!
+## This file is managed by salt.
+
+{% for client, config in freeradius.clients.global.items() %}
+client {{ client }} {
+{% for key, value in config.items() %}
+    {{ key }} = {{ value }}
+{% endfor %}
+}
+{% endfor %}
+
+{% for group, clients in freeradius.clients.groups.items() %}
+clients {{ group }} {
+{% for client, config in clients.items() %}
+    client {{ client }} {
+{% for key, value in config.items() %}
+        {{ key }} = {{ value }}
+{% endfor %}
+    }
+{% endfor %}
+}
+{% endfor %}

@@ -1,0 +1,13 @@
+use_subscription: false
+pve_exporter:
+  install_path: /opt/prometheus-pve-exporter
+  service: prometheus-pve-exporter
+  user: prometheus
+  config_path: /etc/prometheus/pve.yml
+  port: 9221
+  bind: '::'
+  config:
+    default:
+      user: root@pam
+      password: ''
+      verify_ssl: false

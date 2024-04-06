@@ -1,0 +1,6 @@
+use_rfc2307: true
+realm: SAMDOM.EXAMPLE.COM # should be uppercase
+domain: samdom # no longer than 15 characters
+server_role: dc
+dns_backend: SAMBA_INTERNAL
+adminpass: null

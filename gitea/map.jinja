@@ -1,0 +1,4 @@
+{% import_yaml "gitea/defaults.yaml" as defaults %}
+
+{## Merge in salt pillar ##}
+{% set gitea = salt['pillar.get']('gitea', default=defaults, merge=True) %}

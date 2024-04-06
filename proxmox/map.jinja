@@ -1,0 +1,4 @@
+{% import_yaml "proxmox/defaults.yaml" as defaults %}
+
+{## Merge in salt pillar ##}
+{% set proxmox = salt['pillar.get']('proxmox', default=defaults, merge=True) %}

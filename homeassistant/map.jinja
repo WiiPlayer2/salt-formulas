@@ -1,0 +1,4 @@
+{% import_yaml "homeassistant/defaults.yaml" as defaults %}
+
+{## Merge in salt pillar ##}
+{% set homeassistant = salt['pillar.get']('homeassistant', default=defaults, merge=True) %}

@@ -1,0 +1,34 @@
+{% set osmap = salt['grains.filter_by']({
+    'Ubuntu': {
+        'service_disabled': [
+            'systemd-resolved',
+            'smbd',
+            'nmbd',
+        ],
+        'packages': [
+            'acl',
+            'attr',
+            'samba',
+            'samba-dsdb-modules',
+            'samba-vfs-modules',
+            'winbind',
+            'libpam-winbind',
+            'libnss-winbind',
+            'libpam-krb5',
+            'krb5-config',
+            'krb5-user',
+       ],
+        'service': 'samba-ad-dc',
+        'CONFIGFILE': '/etc/samba/smb.conf',
+        'LOCKDIR': '/var/run/samba',
+        'STATEDIR': '/var/lib/samba',
+        'CACHEDIR': '/var/cache/samba',
+        'PRIVATE_DIR': '/var/lib/samba/private',
+    }
+}, grain='os', merge=salt['pillar.get']('samba_ad:lookup', {})) %}
+
+{% import_yaml "samba_ad/defaults.yaml" as defaults %}
+{% do defaults.update(osmap) %}
+
+{## Merge in salt pillar ##}
+{% set samba_ad = salt['pillar.get']('samba_ad', default=defaults, merge=True) %}

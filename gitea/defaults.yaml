@@ -1,0 +1,18 @@
+download_url: https://dl.gitea.io/gitea/1.9.1/gitea-1.9.1-linux-amd64
+user: gitea
+work_path: /var/lib/gitea
+custom_path: /var/lib/gitea/custom
+config_path: /var/lib/gitea/custom/conf/app.ini
+config:
+  repository:
+    ROOT: /var/lib/gitea/repositories
+  
+  ui:
+    DEFAULT_THEME: arc-green
+
+  database:
+    DB_TYPE: sqlite3
+    PATH: /var/lib/gitea/data/gitea.db
+
+  security:
+    INSTALL_LOCK: true

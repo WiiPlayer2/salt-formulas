@@ -1,0 +1,8 @@
+docker_image: acockburn/appdaemon:latest
+docker_name: appdaemon
+docker_timezone: Europe/Berlin
+docker_patch: null
+config: /var/data/appdaemon
+HA_URL: null
+TOKEN: null
+DASH_URL: null

@@ -1,0 +1,9 @@
+{%- from "gitea/map.jinja" import gitea with context %}
+{%- for category, items in gitea.config.items() -%}
+{%- if items != None -%}
+
+[{{ category }}]{% for key, value in items.items() %}
+{{ key }} = {{ value }}{% endfor %}
+
+{% endif -%}
+{%- endfor -%}

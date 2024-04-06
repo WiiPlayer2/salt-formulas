@@ -1,0 +1,4 @@
+{% import_yaml "cloudstack/defaults.yaml" as defaults %}
+
+{## Merge in salt pillar ##}
+{% set cloudstack = salt['pillar.get']('cloudstack', default=defaults, merge=True) %}

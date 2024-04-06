@@ -1,0 +1,12 @@
+[Unit]
+Description=room-assistant service
+
+[Service]
+ExecStart={{ binary }}
+WorkingDirectory=/var/lib/room-assistant
+Restart=always
+RestartSec=10
+User=roomassistant
+
+[Install]
+WantedBy=multi-user.target

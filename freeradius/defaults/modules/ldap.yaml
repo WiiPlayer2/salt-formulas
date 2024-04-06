@@ -1,0 +1,10 @@
+ldap:
+  server: 'localhost'
+  base_dn: 'dc=example,dc=org'
+  sasl: {}
+  update:
+    'control:Password-With-Header__+=': 'userPassword'
+    'control:': 'radiusControlAttribute'
+    'request:': 'radiusRequestAttribute'
+    'reply:': 'radiusReplyAttribute'
+   user_dn: 'LDAP-UserDn'

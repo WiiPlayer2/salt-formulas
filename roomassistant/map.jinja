@@ -1,0 +1,7 @@
+{% import_yaml "roomassistant/defaults.yaml" as defaults %}
+{% import_yaml "roomassistant/cpuarchmap.yaml" as cpuarchmap %}
+
+{% set cpuarch = salt['grains.filter_by'](cpuarchmap, grain='cpuarch') or{} %}
+{% do salt['defaults.merge'](defaults, cpuarch) %}
+
+{% set roomassistant = salt['pillar.get']('roomassistant', default=defaults, merge=True) %}

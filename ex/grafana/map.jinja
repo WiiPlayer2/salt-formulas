@@ -1,0 +1,2 @@
+{%- import_yaml "ex/grafana/defaults.yaml" as defaults -%}
+{%- set grafana = salt['pillar.get']('grafana', defaults, merge=True) -%}

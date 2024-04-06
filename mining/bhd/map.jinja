@@ -1,0 +1,4 @@
+{% import_yaml "mining/bhd/defaults.yaml" as defaults %}
+
+{## Merge in salt pillar ##}
+{% set cfg = salt['pillar.get']('mining:bhd', default=defaults, merge=True) %}

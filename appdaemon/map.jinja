@@ -1,0 +1,4 @@
+{% import_yaml "appdaemon/defaults.yaml" as defaults %}
+
+{## Merge in salt pillar ##}
+{% set appdaemon = salt['pillar.get']('appdaemon', default=defaults, merge=True) %}

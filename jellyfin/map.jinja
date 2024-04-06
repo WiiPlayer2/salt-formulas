@@ -1,0 +1,4 @@
+{% import_yaml "jellyfin/defaults.yaml" as defaults %}
+
+{## Merge in salt pillar ##}
+{% set jellyfin = salt['pillar.get']('jellyfin', default=defaults, merge=True) %}

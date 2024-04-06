@@ -1,0 +1,8 @@
+[Unit]
+Description=Car MQTT Logger
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/car-mqtt-logger/main.py /etc/car.yaml -f /var/log/car.log -l DEBUG
+
+[Install]
+WantedBy=multi-user.target

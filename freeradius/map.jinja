@@ -1,0 +1,20 @@
+{% set osmap = salt['grains.filter_by']({
+    'Ubuntu': {
+        'packages': [
+           'freeradius',
+           'freeradius-common',
+           'freeradius-krb5',
+           'freeradius-ldap',
+           'freeradius-utils',
+       ],
+        'user': 'freerad',
+        'service': 'freeradius',
+        'config_dir': '/etc/freeradius/3.0/',
+    }
+}, grain='os', merge=salt['pillar.get']('freeradius:lookup', {})) %}
+
+{% import_yaml "freeradius/defaults.yaml" as defaults %}
+{% do defaults.update(osmap) %}
+
+{## Merge in salt pillar ##}
+{% set freeradius = salt['pillar.get']('freeradius', default=defaults, merge=True) %}

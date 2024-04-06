@@ -1,0 +1,15 @@
+{% set osmap = salt['grains.filter_by']({
+    'Ubuntu': {
+        'server': {
+            'packages': [
+                'build-essential',
+            ],
+       },
+    }
+}, grain='os', merge=salt['pillar.get']('softether:lookup', {})) %}
+
+{% import_yaml "softether/defaults.yaml" as defaults %}
+{% set defaults = salt['slsutil.merge'](defaults, osmap) %}
+
+{## Merge in salt pillar ##}
+{% set softether = salt['pillar.get']('softether', default=defaults, merge=True) %}

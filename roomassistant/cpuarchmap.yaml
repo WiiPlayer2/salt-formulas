@@ -1,0 +1,4 @@
+armv6l:
+  binary: /opt/nodejs/bin/room-assistant
+armv7l:
+  binary: /usr/bin/room-assistant

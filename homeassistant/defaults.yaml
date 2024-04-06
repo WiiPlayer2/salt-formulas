@@ -1,0 +1,13 @@
+install:
+  type: venv
+  user: homeassistant
+  venv_path: /srv/homeassistant
+  config: /var/data/homeassistant
+  docker_image: homeassistant/home-assistant:latest
+  docker_name: home-assistant
+  docker_timezone: Europe/Berlin
+  docker_binds: []
+config:
+  path: /var/data/homeassistant
+  type: git_repo
+  git_repo: null

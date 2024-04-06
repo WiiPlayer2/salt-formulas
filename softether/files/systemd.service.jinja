@@ -1,0 +1,11 @@
+[Unit]
+Description=Softether VPN Server
+
+[Service]
+Type=forking
+ExecStart={{ dir }}/{{ cmd }} start
+ExecStop={{ dir }}/{{ cmd }} stop
+#PIDFile=
+
+[Install]
+WantedBy=multi-user.target

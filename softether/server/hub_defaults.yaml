@@ -1,0 +1,9 @@
+password: None
+radius:
+  enable: false
+  host: null
+  port: null
+  secret: null
+  retry_interval: 5000
+bridges: []
+users: {}

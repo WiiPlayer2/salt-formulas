@@ -1,0 +1,24 @@
+{%- raw -%}
+clients:
+  global: {}
+  groups: {}
+
+modules:
+  enabled: []
+  config:
+    eap:
+      default_eap_type: md5
+      tls_common:
+        random_file: /dev/urandom
+    mschap:
+      ntlm_auth: '/path/to/ntlm_auth --request-nt-key --username=%{%{Stripped-User-Name}:-%{%{User-Name}:-None}} --challenge=%{%{mschap:Challenge}:-00} --nt-response=%{%{mschap:NT-Response}:-00}'
+    ntlm_auth:
+      program: '/path/to/ntlm_auth --request-nt-key --domain=MYDOMAIN --username=%{mschap:User-Name} --password=%{User-Password}'
+
+sites:
+  custom: []
+  enabled: []
+
+policies:
+  custom: []
+{%- endraw -%}
