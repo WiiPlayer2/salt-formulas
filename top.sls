@@ -15,7 +15,11 @@ base:
 ### Global
 ##########################
   '*':
+{% if 'salt-masterless' in grains['features'] %}
+    - salt.standalone
+{% else %}
     - salt.minion
+{% endif %}
     - files
     - cmd
 
